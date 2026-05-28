@@ -1,0 +1,10 @@
+node_modules/
+*.tgz
+.DS_Store
+coverage/
+.vitest/
+.playwright/
+docs/artifacts/
+proof-chat-demo/artifacts/clipboard-result.json
+proof-chat-demo/artifacts/01-before-copy.png
+proof-chat-demo/artifacts/02-after-copy.png

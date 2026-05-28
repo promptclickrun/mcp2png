@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mcp2png chat message copy proof</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; min-height: 100vh; background: #f3f4f6; color: #111827; display: grid; place-items: start center; padding: 40px 16px; }
+    main { width: min(920px, 100%); }
+    h1 { font-size: 26px; margin: 0 0 8px; }
+    .hint { color: #4b5563; margin: 0 0 24px; }
+    .chat-message { background: white; border: 1px solid #e5e7eb; border-radius: 20px; box-shadow: 0 22px 60px rgba(15, 23, 42, .12); padding: 24px; }
+    .chat-message p { line-height: 1.55; margin: 0 0 18px; }
+    .mcp-app { margin: 18px 0; border: 1px solid #bfdbfe; border-radius: 18px; overflow: hidden; background: linear-gradient(135deg, #eff6ff, #eef2ff); }
+    .app-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: rgba(255,255,255,.72); border-bottom: 1px solid #bfdbfe; }
+    .app-title { font-weight: 750; }
+    .badge { font-size: 12px; border-radius: 999px; background: #2563eb; color: white; padding: 4px 10px; }
+    .chart { height: 180px; display: flex; align-items: end; gap: 18px; padding: 22px 24px; }
+    .bar { width: 72px; border-radius: 12px 12px 4px 4px; background: linear-gradient(180deg, #60a5fa, #1d4ed8); display: grid; place-items: start center; color: white; font-weight: 800; padding-top: 10px; box-sizing: border-box; }
+    .bar:nth-child(2) { height: 92px; background: linear-gradient(180deg, #a78bfa, #6d28d9); }
+    .bar:nth-child(3) { height: 132px; background: linear-gradient(180deg, #34d399, #047857); }
+    .bar:nth-child(4) { height: 156px; background: linear-gradient(180deg, #f59e0b, #b45309); }
+    .bar:nth-child(1) { height: 74px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 18px; font-size: 14px; }
+    th, td { text-align: left; border-bottom: 1px solid #e5e7eb; padding: 10px 8px; }
+    th { color: #374151; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .actions { display: flex; gap: 12px; align-items: center; margin-top: 20px; }
+    button { appearance: none; border: 0; border-radius: 999px; padding: 12px 18px; font-weight: 800; cursor: pointer; background: #111827; color: white; }
+    button:active { transform: translateY(1px); }
+    #status { color: #065f46; font-weight: 700; }
+    .preview { margin-top: 24px; background: #111827; color: #d1d5db; border-radius: 14px; padding: 16px; white-space: pre-wrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; max-height: 260px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>mcp2png chat message copy proof</h1>
+    <p class="hint">Click the button. It copies the whole chat message as rich HTML while replacing the MCP App with an inline PNG.</p>
+
+    <article id="message" class="chat-message">
+      <p><strong>Quarterly readout:</strong> revenue is pacing ahead of target. The rendered MCP App below is the visual summary that should copy as a PNG, not raw app data.</p>
+
+      <section id="sales-card" class="mcp-app" data-mcp2png-export="sales-card-q2" aria-label="Q2 revenue chart MCP App">
+        <div class="app-header">
+          <span class="app-title">MCP App: Q2 revenue chart</span>
+          <span class="badge">live card</span>
+        </div>
+        <div class="chart" aria-hidden="true">
+          <div class="bar">Jan</div>
+          <div class="bar">Feb</div>
+          <div class="bar">Mar</div>
+          <div class="bar">Apr</div>
+        </div>
+      </section>
+
+      <table>
+        <thead><tr><th>Metric</th><th>Value</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Total pipeline</td><td>$42,000</td><td>Above plan</td></tr>
+          <tr><td>Renewals</td><td>94%</td><td>Healthy</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <div class="actions">
+      <button id="copy-message">Copy chat message</button>
+      <span id="status" role="status"></span>
+    </div>
+    <pre id="preview" class="preview" aria-label="clipboard preview">Clipboard preview appears here after copy.</pre>
+  </main>
+
+  <script type="module" src="./demo-entry.js"></script>
+</body>
+</html>

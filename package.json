@@ -1,0 +1,85 @@
+{
+  "name": "mcp2png",
+  "version": "0.1.0",
+  "description": "Copy rendered MCP Apps and chat cards as PNG images without leaking raw app payloads.",
+  "type": "module",
+  "license": "MIT",
+  "private": false,
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:browser-smoke": "vitest run -c vitest.browser.config.ts tests/browser-smoke.test.ts",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build",
+    "site:serve": "vite --host 127.0.0.1 --port 4178",
+    "site:check": "node scripts/check-site.mjs"
+  },
+  "dependencies": {
+    "html-to-image": "^1.11.13"
+  },
+  "peerDependencies": {
+    "@mcp-ui/client": ">=0.0.0",
+    "react": ">=18.2.0 || >=19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "@mcp-ui/client": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/browser": "^4.0.0",
+    "@vitest/browser-playwright": "^4.1.7",
+    "jsdom": "^27.0.0",
+    "playwright": "^1.56.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^8.0.14",
+    "vitest": "^4.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-apps",
+    "clipboard",
+    "png",
+    "react",
+    "screenshot",
+    "mcp-ui",
+    "copy-to-clipboard",
+    "html-to-image",
+    "chat-ui"
+  ],
+  "homepage": "https://promptclickrun.github.io/mcp2png/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/promptclickrun/mcp2png.git"
+  },
+  "bugs": {
+    "url": "https://github.com/promptclickrun/mcp2png/issues"
+  }
+}
